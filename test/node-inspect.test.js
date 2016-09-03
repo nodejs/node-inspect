@@ -1,10 +1,10 @@
 'use strict';
-var assert = require('assertive');
+const assert = require('assertive');
 
-var nodeInspect = require('../');
+const nodeInspect = require('../');
 
-describe('node-inspect', function () {
-  it('is empty', function () {
-    assert.deepEqual({}, nodeInspect);
+describe('node-inspect', () => {
+  it('is empty', () => {
+    assert.equal(5858, nodeInspect.port);
   });
 });
