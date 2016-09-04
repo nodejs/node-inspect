@@ -4,6 +4,7 @@
   "description": "Node Inspect",
   "license": "BSD-3-Clause",
   "main": "lib/node-inspect.js",
+  "bin": "cli.js",
   "homepage": "https://github.com/buggerjs/node-inspect",
   "repository": {
     "type": "git",
