@@ -25,3 +25,4 @@ Usage: node debug script.js
 
 * [Debugger Documentation](https://nodejs.org/api/debugger.html)
 * [EPS: `node inspect` CLI debugger](https://github.com/nodejs/node-eps/pull/42)
+* [Debugger Protocol Viewer](https://chromedevtools.github.io/debugger-protocol-viewer/)
