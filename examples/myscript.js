@@ -3,7 +3,7 @@
 console.log('initial thing');
 debugger;
 const x = process.argv[2] || 'world';
-setTimeout(() => {
+setInterval(() => {
   debugger;
   console.log(x);
 }, 1000);
