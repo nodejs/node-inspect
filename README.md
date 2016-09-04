@@ -17,8 +17,8 @@ This project tries to provide the missing second option
 by re-implementing `node debug` against the new protocol.
 
 ```
-Usage: node debug script.js
-       node debug <host>:<port>
+Usage: node-inspect script.js
+       node-inspect <host>:<port>
 ```
 
 #### References
