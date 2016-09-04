@@ -19,5 +19,9 @@ by re-implementing `node debug` against the new protocol.
 ```
 Usage: node debug script.js
        node debug <host>:<port>
-       node debug -p <pid>
 ```
+
+#### References
+
+* [Debugger Documentation](https://nodejs.org/api/debugger.html)
+* [EPS: `node inspect` CLI debugger](https://github.com/nodejs/node-eps/pull/42)
