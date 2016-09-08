@@ -2,7 +2,7 @@
   "name": "node-inspect",
   "version": "0.0.0",
   "description": "Node Inspect",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "main": "lib/node-inspect.js",
   "bin": "cli.js",
   "homepage": "https://github.com/buggerjs/node-inspect",
