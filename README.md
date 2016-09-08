@@ -26,3 +26,4 @@ Usage: node-inspect script.js
 * [Debugger Documentation](https://nodejs.org/api/debugger.html)
 * [EPS: `node inspect` CLI debugger](https://github.com/nodejs/node-eps/pull/42)
 * [Debugger Protocol Viewer](https://chromedevtools.github.io/debugger-protocol-viewer/)
+* [Command Line API](https://developers.google.com/web/tools/chrome-devtools/debug/command-line/command-line-reference?hl=en)
