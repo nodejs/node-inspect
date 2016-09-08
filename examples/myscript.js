@@ -2,9 +2,10 @@
 'use strict';
 console.log('initial thing');
 debugger;
-const x = process.argv[2] || 'world';
+const strings = require('./strings.js');
+const x = process.argv[2] || strings.world;
 setInterval(() => {
   // debugger;
   console.log(x);
 }, 1000);
-console.log('hello');
+console.log(strings.hello);
