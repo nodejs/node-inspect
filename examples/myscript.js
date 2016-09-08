@@ -4,7 +4,7 @@ console.log('initial thing');
 debugger;
 const x = process.argv[2] || 'world';
 setInterval(() => {
-  debugger;
+  // debugger;
   console.log(x);
 }, 1000);
 console.log('hello');
