@@ -1,3 +1,8 @@
+### 1.1.0
+
+* [`c64155f`](https://github.com/buggerjs/node-inspect/commit/c64155faa552f71463842a26330aa5bcbfc31670) **feat:** repl command
+
+
 ### 1.0.0
 
 * [`44c4c79`](https://github.com/buggerjs/node-inspect/commit/44c4c79af5a228ccfd8906f11409b2a33390b878) **chore:** Initial commit
