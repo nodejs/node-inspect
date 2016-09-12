@@ -1,3 +1,8 @@
+### 1.1.1
+
+* [`feaea38`](https://github.com/buggerjs/node-inspect/commit/feaea385a981e6b72a8d99277fbf575c54e15fc6) **style:** Typo in comment
+
+
 ### 1.1.0
 
 * [`c64155f`](https://github.com/buggerjs/node-inspect/commit/c64155faa552f71463842a26330aa5bcbfc31670) **feat:** repl command
