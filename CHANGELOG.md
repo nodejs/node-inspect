@@ -1,3 +1,8 @@
+### 1.2.0
+
+* [`86b5812`](https://github.com/buggerjs/node-inspect/commit/86b581218ccab44e6bde259a17ad1e71645a6137) **feat:** scripts & listScripts(true)
+
+
 ### 1.1.1
 
 * [`feaea38`](https://github.com/buggerjs/node-inspect/commit/feaea385a981e6b72a8d99277fbf575c54e15fc6) **style:** Typo in comment
