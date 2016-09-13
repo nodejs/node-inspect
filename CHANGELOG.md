@@ -1,3 +1,8 @@
+### 1.3.0
+
+* [`3ac6232`](https://github.com/buggerjs/node-inspect/commit/3ac623219ba44b0af40ef66826610a26a46c7966) **feat:** Add `version` command
+
+
 ### 1.2.0
 
 * [`86b5812`](https://github.com/buggerjs/node-inspect/commit/86b581218ccab44e6bde259a17ad1e71645a6137) **feat:** scripts & listScripts(true)
