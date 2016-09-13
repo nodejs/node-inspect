@@ -1,3 +1,8 @@
+### 1.3.1
+
+* [`8767137`](https://github.com/buggerjs/node-inspect/commit/8767137c53a2f6b1d36970074ea95be9871e50e3) **style:** Remove rogue console.log
+
+
 ### 1.3.0
 
 * [`3ac6232`](https://github.com/buggerjs/node-inspect/commit/3ac623219ba44b0af40ef66826610a26a46c7966) **feat:** Add `version` command
