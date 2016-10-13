@@ -15,7 +15,7 @@
   },
   "scripts": {
     "pretest": "eslint lib test",
-    "test": "mocha",
+    "test": "tap test",
     "posttest": "nlm verify"
   },
   "nlm": {
@@ -27,13 +27,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "assertive": "^2.0.0",
     "eslint": "^2.0.0",
     "eslint-config-groupon-node6": "^3.1.0",
     "eslint-plugin-import": "^1.6.1",
     "eslint-plugin-node": "^2.0.0",
-    "mocha": "^2.0.0",
-    "nlm": "^2.0.0"
+    "nlm": "^2.0.0",
+    "tap": "^7.1.2"
   },
   "author": {
     "name": "Jan Krems",

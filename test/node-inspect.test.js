@@ -1,10 +1,7 @@
 'use strict';
-const assert = require('assertive');
+const tap = require('tap');
 
 const nodeInspect = require('../');
 
-describe('node-inspect', () => {
-  it('is empty', () => {
-    assert.equal(5858, nodeInspect.port);
-  });
-});
+tap.equal(9229, nodeInspect.port,
+  'Uses the --inspect default port');
