@@ -1,3 +1,9 @@
+### 1.3.2
+
+* Add notes about governance - **[@jkrems](https://github.com/jkrems)** [#3](https://github.com/buggerjs/node-inspect/pull/3)
+  - [`e94089d`](https://github.com/buggerjs/node-inspect/commit/e94089d93689cacf5c953e94563463d1e174452d) **chore:** Add notes about governance
+
+
 ### 1.3.1
 
 * [`8767137`](https://github.com/buggerjs/node-inspect/commit/8767137c53a2f6b1d36970074ea95be9871e50e3) **style:** Remove rogue console.log
