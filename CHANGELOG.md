@@ -1,3 +1,8 @@
+### 1.3.3
+
+* [`eb7a54c`](https://github.com/buggerjs/node-inspect/commit/eb7a54c6fa731ed3276072c72034046fc5ffbac6) **chore:** Switch to tap for tests
+
+
 ### 1.3.2
 
 * Add notes about governance - **[@jkrems](https://github.com/jkrems)** [#3](https://github.com/buggerjs/node-inspect/pull/3)
