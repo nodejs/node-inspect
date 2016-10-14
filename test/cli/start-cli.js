@@ -78,6 +78,13 @@ function startCLI(args) {
       return getOutput();
     },
 
+    command(input) {
+      this.flushOutput();
+      child.stdin.write(input);
+      child.stdin.write('\n');
+      return this.waitForPrompt();
+    },
+
     quit() {
       return new Promise((resolve) => {
         child.stdin.end();
