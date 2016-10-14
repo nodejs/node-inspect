@@ -44,8 +44,24 @@ tap.test('stepping through breakpoints', (t) => {
         '>10 debugger;',
         'marks the debugger line');
     })
+
+    // Prepare additional breakpoints
     .then(() => cli.command('sb("break.js", 6)'))
     .then(() => cli.command('sb("otherFunction()")'))
+
+    .then(() => cli.command('list()'))
+    .then(() => {
+      t.match(cli.output, '>10 debugger;', 'prints and marks current line');
+      t.strictDeepEqual(cli.parseSourceLines(), [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        'prints 5 lines before and after');
+    })
+    .then(() => cli.command('list(2)'))
+    .then(() => {
+      t.match(cli.output, '>10 debugger;', 'prints and marks current line');
+      t.strictDeepEqual(cli.parseSourceLines(), [8, 9, 10, 11, 12],
+        'prints 2 lines before and after');
+    })
+
     .then(() => cli.stepCommand('s'))
     .then(() => cli.stepCommand(''))
     .then(() => {

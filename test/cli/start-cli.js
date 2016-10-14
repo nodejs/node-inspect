@@ -80,6 +80,13 @@ function startCLI(args) {
       return getOutput();
     },
 
+    parseSourceLines() {
+      return getOutput().split('\n')
+        .map((line) => line.match(/(?:\*|>)?\s*(\d+)/))
+        .filter((match) => match !== null)
+        .map((match) => +match[1]);
+    },
+
     command(input) {
       this.flushOutput();
       child.stdin.write(input);
