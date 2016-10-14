@@ -1,8 +1,6 @@
 language: node_js
 node_js:
   - '6'
-before_install:
-  - npm install -g npm@latest-2
 before_deploy:
   - git config --global user.email "jan.krems@gmail.com"
   - git config --global user.name "Jan Krems"
