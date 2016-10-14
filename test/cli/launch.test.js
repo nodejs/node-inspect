@@ -3,13 +3,9 @@ const tap = require('tap');
 
 const startCLI = require('./start-cli');
 
-function delay(t) {
-  return new Promise((resolve) => setTimeout(resolve, t));
-}
-
 tap.test('examples/empty.js', (t) => {
   const cli = startCLI(['examples/empty.js']);
-  return delay(1000)
+  return cli.waitForPrompt()
     .then(() => cli.quit())
     .then((code) => {
       t.match(cli.output, 'debug>', 'prints a prompt');

@@ -5,13 +5,26 @@ const CLI = require.resolve('../../cli.js');
 
 function startCLI(args) {
   const child = spawn(process.execPath, [CLI, ...args]);
+  let isFirstStdoutChunk = true;
 
   const outputBuffer = [];
   function bufferOutput(chunk) {
-    outputBuffer.push(chunk);
+    if (isFirstStdoutChunk) {
+      isFirstStdoutChunk = false;
+      outputBuffer.push(chunk.replace(/^debug>\s*/, ''));
+    } else {
+      outputBuffer.push(chunk);
+    }
   }
 
+  function getOutput() {
+    return outputBuffer.join('').toString()
+      .replace(/^[^\n]*[\b]/mg, '\n');
+  }
+
+  child.stdout.setEncoding('utf8');
   child.stdout.on('data', bufferOutput);
+  child.stderr.setEncoding('utf8');
   child.stderr.on('data', bufferOutput);
 
   if (process.env.VERBOSE === '1') {
@@ -26,9 +39,24 @@ function startCLI(args) {
       return output;
     },
 
+    waitForPrompt() {
+      return new Promise((resolve, reject) => {
+        function checkOutput() {
+          if (/debug>\s*$/.test(getOutput())) {
+            child.stdout.removeListener('data', checkOutput);
+            resolve();
+          }
+        }
+        child.on('exit', () => {
+          reject(new Error('Child quit while waiting for prompt'));
+        });
+        child.stdout.on('data', checkOutput);
+        checkOutput();
+      });
+    },
+
     get output() {
-      return Buffer.concat(outputBuffer).toString()
-        .replace(/^[^\n]*[\b]/mg, '\n');
+      return getOutput();
     },
 
     quit() {
