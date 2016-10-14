@@ -14,6 +14,10 @@ tap.test('examples/empty.js', (t) => {
     .then(() => {
       t.match(cli.output, 'hello world', 'prints the result');
     })
+    .then(() => cli.command(''))
+    .then(() => {
+      t.match(cli.output, 'hello world', 'repeats the last command on <enter>');
+    })
     .then(() => cli.quit())
     .then((code) => {
       t.equal(code, 0, 'exits with success');
