@@ -14,11 +14,21 @@ function startCLI(args) {
   child.stdout.on('data', bufferOutput);
   child.stderr.on('data', bufferOutput);
 
+  if (process.env.VERBOSE === '1') {
+    child.stdout.pipe(process.stderr);
+    child.stderr.pipe(process.stderr);
+  }
+
   return {
     flushOutput() {
-      const output = Buffer.concat(outputBuffer).toString();
+      const output = this.output;
       outputBuffer.length = 0;
       return output;
+    },
+
+    get output() {
+      return Buffer.concat(outputBuffer).toString()
+        .replace(/^[^\n]*[\b]/mg, '\n');
     },
 
     quit() {
