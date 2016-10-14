@@ -50,12 +50,14 @@ function startCLI(args) {
 
         function onChildExit() {
           tearDown(); // eslint-disable-line no-use-before-define
-          reject(new Error(`Child quit while waiting for ${pattern}`));
+          reject(new Error(
+            `Child quit while waiting for ${pattern}; found: ${this.output}`));
         }
 
         const timer = setTimeout(() => {
           tearDown(); // eslint-disable-line no-use-before-define
-          reject(new Error(`Timeout (${timeout}) while waiting for ${pattern}`));
+          reject(new Error(
+            `Timeout (${timeout}) while waiting for ${pattern}; found: ${this.output}`));
         }, timeout);
 
         function tearDown() {
@@ -83,6 +85,14 @@ function startCLI(args) {
       child.stdin.write(input);
       child.stdin.write('\n');
       return this.waitForPrompt();
+    },
+
+    stepCommand(input) {
+      this.flushOutput();
+      child.stdin.write(input);
+      child.stdin.write('\n');
+      return this.waitFor(/break/)
+        .then(() => this.waitForPrompt());
     },
 
     quit() {
