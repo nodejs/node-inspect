@@ -39,20 +39,39 @@ function startCLI(args) {
       return output;
     },
 
-    waitForPrompt() {
+    waitFor(pattern, timeout = 2000) {
       return new Promise((resolve, reject) => {
         function checkOutput() {
-          if (/debug>\s*$/.test(getOutput())) {
-            child.stdout.removeListener('data', checkOutput);
+          if (pattern.test(getOutput())) {
+            tearDown(); // eslint-disable-line no-use-before-define
             resolve();
           }
         }
-        child.on('exit', () => {
-          reject(new Error('Child quit while waiting for prompt'));
-        });
+
+        function onChildExit() {
+          tearDown(); // eslint-disable-line no-use-before-define
+          reject(new Error(`Child quit while waiting for ${pattern}`));
+        }
+
+        const timer = setTimeout(() => {
+          tearDown(); // eslint-disable-line no-use-before-define
+          reject(new Error(`Timeout (${timeout}) while waiting for ${pattern}`));
+        }, timeout);
+
+        function tearDown() {
+          clearTimeout(timer);
+          child.stdout.removeListener('data', checkOutput);
+          child.removeListener('exit', onChildExit);
+        }
+
+        child.on('exit', onChildExit);
         child.stdout.on('data', checkOutput);
         checkOutput();
       });
+    },
+
+    waitForPrompt(timeout = 2000) {
+      return this.waitFor(/debug>\s*$/, timeout);
     },
 
     get output() {
