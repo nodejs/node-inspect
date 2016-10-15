@@ -18,6 +18,10 @@ test('examples/empty.js', (t) => {
     .then(() => {
       t.match(cli.output, 'hello world', 'repeats the last command on <enter>');
     })
+    .then(() => cli.command('version'))
+    .then(() => {
+      t.match(cli.output, process.versions.v8, 'version prints the v8 version');
+    })
     .then(() => cli.quit())
     .then((code) => {
       t.equal(code, 0, 'exits with success');
