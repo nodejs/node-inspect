@@ -19,7 +19,7 @@ function startCLI(args) {
 
   function getOutput() {
     return outputBuffer.join('').toString()
-      .replace(/^[^\n]*[\b]/mg, '\n');
+      .replace(/^[^\n]*?[\b]/mg, '');
   }
 
   child.stdout.setEncoding('utf8');
@@ -78,6 +78,10 @@ function startCLI(args) {
 
     get output() {
       return getOutput();
+    },
+
+    get rawOutput() {
+      return outputBuffer.join('').toString();
     },
 
     parseSourceLines() {
