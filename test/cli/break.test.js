@@ -81,3 +81,27 @@ test('stepping through breakpoints', (t) => {
     .then(() => cli.quit())
     .then(null, onFatal);
 });
+
+test('sb before loading file', (t) => {
+  const cli = startCLI(['examples/cjs/index.js']);
+
+  function onFatal(error) {
+    cli.quit();
+    throw error;
+  }
+
+  return cli.waitFor(/break/)
+    .then(() => cli.waitForPrompt())
+    .then(() => cli.command('sb("other.js", 3)'))
+    .then(() => {
+      t.match(cli.output, 'not loaded yet',
+        'warns that the script was not loaded yet');
+    })
+    .then(() => cli.stepCommand('cont'))
+    .then(() => {
+      t.match(cli.output, 'break in examples/cjs/other.js:3',
+        'found breakpoint in file that was not loaded yet');
+    })
+    .then(() => cli.quit())
+    .then(null, onFatal);
+});
