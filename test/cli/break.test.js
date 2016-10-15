@@ -47,8 +47,10 @@ test('stepping through breakpoints', (t) => {
 
     // Prepare additional breakpoints
     .then(() => cli.command('sb("break.js", 6)'))
+    .then(() => t.notMatch(cli.output, 'Could not resolve breakpoint'))
     .then(() => cli.command('sb("otherFunction()")'))
     .then(() => cli.command('sb(16)'))
+    .then(() => t.notMatch(cli.output, 'Could not resolve breakpoint'))
     .then(() => cli.command('breakpoints'))
     .then(() => {
       t.match(cli.output, '#0 examples/break.js:6');
