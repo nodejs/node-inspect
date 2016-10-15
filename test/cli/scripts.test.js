@@ -1,9 +1,9 @@
 'use strict';
-const tap = require('tap');
+const { test } = require('tap');
 
 const startCLI = require('./start-cli');
 
-tap.test('list scripts', (t) => {
+test('list scripts', (t) => {
   const cli = startCLI(['examples/empty.js']);
 
   function onFatal(error) {

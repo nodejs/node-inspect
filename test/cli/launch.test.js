@@ -1,9 +1,9 @@
 'use strict';
-const tap = require('tap');
+const { test } = require('tap');
 
 const startCLI = require('./start-cli');
 
-tap.test('examples/empty.js', (t) => {
+test('examples/empty.js', (t) => {
   const cli = startCLI(['examples/empty.js']);
   return cli.waitForPrompt()
     .then(() => {

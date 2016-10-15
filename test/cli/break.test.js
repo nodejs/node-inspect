@@ -1,9 +1,9 @@
 'use strict';
-const tap = require('tap');
+const { test } = require('tap');
 
 const startCLI = require('./start-cli');
 
-tap.test('stepping through breakpoints', (t) => {
+test('stepping through breakpoints', (t) => {
   const cli = startCLI(['examples/break.js']);
 
   function onFatal(error) {

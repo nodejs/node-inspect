@@ -1,9 +1,9 @@
 'use strict';
-const tap = require('tap');
+const { test } = require('tap');
 
 const startCLI = require('./start-cli');
 
-tap.test('display and navigate backtrace', (t) => {
+test('display and navigate backtrace', (t) => {
   const cli = startCLI(['examples/backtrace.js']);
 
   function onFatal(error) {
