@@ -116,3 +116,42 @@ test('sb before loading file', (t) => {
     .then(() => cli.quit())
     .then(null, onFatal);
 });
+
+test('clearBreakpoint', (t) => {
+  const cli = startCLI(['examples/break.js']);
+
+  function onFatal(error) {
+    cli.quit();
+    throw error;
+  }
+
+  return cli.waitFor(/break/)
+    .then(() => cli.waitForPrompt())
+    .then(() => cli.command('sb("break.js", 3)'))
+    .then(() => cli.command('sb("break.js", 9)'))
+    .then(() => cli.command('breakpoints'))
+    .then(() => {
+      t.match(cli.output, '#0 examples/break.js:3');
+      t.match(cli.output, '#1 examples/break.js:9');
+    })
+    .then(() => cli.command('clearBreakpoint("break.js", 4)'))
+    .then(() => {
+      t.match(cli.output, 'Could not find breakpoint');
+    })
+    .then(() => cli.command('clearBreakpoint("not-such-script.js", 3)'))
+    .then(() => {
+      t.match(cli.output, 'Could not find breakpoint');
+    })
+    .then(() => cli.command('clearBreakpoint("break.js", 3)'))
+    .then(() => cli.command('breakpoints'))
+    .then(() => {
+      t.match(cli.output, '#0 examples/break.js:9');
+    })
+    .then(() => cli.stepCommand('cont'))
+    .then(() => {
+      t.match(cli.output, 'break in examples/break.js:9',
+        'hits the 2nd breakpoint because the 1st was cleared');
+    })
+    .then(() => cli.quit())
+    .then(null, onFatal);
+});
