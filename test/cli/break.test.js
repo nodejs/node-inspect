@@ -48,6 +48,12 @@ test('stepping through breakpoints', (t) => {
     // Prepare additional breakpoints
     .then(() => cli.command('sb("break.js", 6)'))
     .then(() => cli.command('sb("otherFunction()")'))
+    .then(() => cli.command('sb(16)'))
+    .then(() => cli.command('breakpoints'))
+    .then(() => {
+      t.match(cli.output, '#0 examples/break.js:6');
+      t.match(cli.output, '#1 examples/break.js:16');
+    })
 
     .then(() => cli.command('list()'))
     .then(() => {
@@ -70,8 +76,13 @@ test('stepping through breakpoints', (t) => {
     })
     .then(() => cli.stepCommand('cont'))
     .then(() => {
+      t.match(cli.output, 'break in examples/break.js:16',
+        'found breakpoint we set above w/ line number only');
+    })
+    .then(() => cli.stepCommand('cont'))
+    .then(() => {
       t.match(cli.output, 'break in examples/break.js:6',
-        'found breakpoint we set above');
+        'found breakpoint we set above w/ line number & script');
     })
     .then(() => cli.stepCommand(''))
     .then(() => {
