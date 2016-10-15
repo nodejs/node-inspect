@@ -17,6 +17,21 @@ test('examples/alive.js', (t) => {
     .then(() => {
       t.match(cli.output, '[ \'function\', \'function\' ]', 'works w/o paren');
     })
+    .then(() => cli.command('repl'))
+    .then(() => {
+      t.match(cli.output, 'Press Ctrl + C to leave debug repl\n> ',
+        'shows hint for how to leave repl');
+      t.notMatch(cli.output, 'debug>', 'changes the repl style');
+    })
+    .then(() => cli.command('[typeof heartbeat, typeof process.exit]'))
+    .then(() => cli.waitFor(/function/))
+    .then(() => cli.waitForPrompt())
+    .then(() => {
+      t.match(cli.output, '[ \'function\', \'function\' ]', 'can evaluate in the repl');
+      t.match(cli.output, /> $/);
+    })
+    .then(() => cli.ctrlC())
+    .then(() => cli.waitFor(/debug> $/))
     .then(() => cli.command('exec("[typeof heartbeat, typeof process.exit]")'))
     .then(() => {
       t.match(cli.output, '[ \'function\', \'function\' ]', 'works w/ paren');

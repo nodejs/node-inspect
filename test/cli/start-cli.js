@@ -73,7 +73,11 @@ function startCLI(args) {
     },
 
     waitForPrompt(timeout = 2000) {
-      return this.waitFor(/debug>\s*$/, timeout);
+      return this.waitFor(/>\s+$/, timeout);
+    },
+
+    ctrlC() {
+      return this.command('.interrupt');
     },
 
     get output() {
