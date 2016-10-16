@@ -70,6 +70,18 @@ test('run after quit / restart', (t) => {
       t.match(cli.output, 'break in examples/three-lines.js:1',
         'is back at the beginning');
     })
+    .then(() => cli.command('kill'))
+    .then(() => cli.command('cont'))
+    .then(() => cli.waitFor(/start the app/))
+    .then(() => {
+      t.match(cli.output, 'Use `run` to start the app again');
+    })
+    .then(() => cli.stepCommand('run'))
+    .then(() => cli.waitForPrompt())
+    .then(() => {
+      t.match(cli.output, 'break in examples/three-lines.js:1',
+        'is back at the beginning');
+    })
     .then(() => cli.quit())
     .then(null, onFatal);
 });
