@@ -1,3 +1,8 @@
+### 1.5.0
+
+* [`7e0fd99`](https://github.com/buggerjs/node-inspect/commit/7e0fd99fcfc65d8b647a2259df78f4cabf1d3d63) **feat:** Add `r` shortcut for `run`
+
+
 ### 1.4.1
 
 * [`484d098`](https://github.com/buggerjs/node-inspect/commit/484d0983f06d6ff9639ab5197ba0a58313f532df) **chore:** Remove old implementation
