@@ -113,7 +113,7 @@ function startCLI(args) {
       this.flushOutput();
       child.stdin.write(input);
       child.stdin.write('\n');
-      return this.waitFor(/break/)
+      return this.waitFor(/(?:assert|break|debugCommand|exception|other|promiseRejection) in/)
         .then(() => this.waitForPrompt());
     },
 
