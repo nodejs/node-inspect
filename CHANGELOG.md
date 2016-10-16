@@ -1,3 +1,9 @@
+### 1.7.0
+
+* `breakOn{Exception,Uncaught,None}` - **[@jkrems](https://github.com/jkrems)** [#8](https://github.com/buggerjs/node-inspect/pull/8)
+  - [`fa8c4c7`](https://github.com/buggerjs/node-inspect/commit/fa8c4c7d7bb6972733c92da4d04fdd62c02b0e3b) **feat:** `breakOn{Exception,Uncaught,None}` - see: [#6](https://github.com/buggerjs/node-inspect/issues/6)
+
+
 ### 1.6.0
 
 * Add `help` command - **[@jkrems](https://github.com/jkrems)** [#7](https://github.com/buggerjs/node-inspect/pull/7)
