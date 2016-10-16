@@ -40,9 +40,16 @@ function startCLI(args) {
     },
 
     waitFor(pattern, timeout = 2000) {
+      function checkPattern(str) {
+        if (Array.isArray(pattern)) {
+          return pattern.every((p) => p.test(str));
+        }
+        return pattern.test(str);
+      }
+
       return new Promise((resolve, reject) => {
         function checkOutput() {
-          if (pattern.test(getOutput())) {
+          if (checkPattern(getOutput())) {
             tearDown(); // eslint-disable-line no-use-before-define
             resolve();
           }
