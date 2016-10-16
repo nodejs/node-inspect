@@ -15,7 +15,7 @@
   },
   "scripts": {
     "pretest": "eslint lib test",
-    "test": "tap test",
+    "test": "tap 'test/**/*.test.js'",
     "posttest": "nlm verify"
   },
   "nlm": {
