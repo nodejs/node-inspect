@@ -27,3 +27,49 @@ test('examples/empty.js', (t) => {
       t.equal(code, 0, 'exits with success');
     });
 });
+
+test('run after quit / restart', (t) => {
+  const cli = startCLI(['examples/three-lines.js']);
+
+  function onFatal(error) {
+    cli.quit();
+    throw error;
+  }
+
+  return cli.waitFor(/break/)
+    .then(() => cli.waitForPrompt())
+    .then(() => cli.stepCommand('n'))
+    .then(() => {
+      t.match(cli.output, 'break in examples/three-lines.js:2',
+        'steps to the 2nd line');
+    })
+    .then(() => cli.command('cont'))
+    .then(() => cli.waitFor(/disconnect/))
+    .then(() => {
+      t.match(cli.output, 'Waiting for the debugger to disconnect',
+        'the child was done');
+    })
+    .then(() => cli.command('cont'))
+    .then(() => cli.waitFor(/start the app/))
+    .then(() => {
+      t.match(cli.output, 'Use `run` to start the app again');
+    })
+    .then(() => cli.stepCommand('run'))
+    .then(() => cli.waitForPrompt())
+    .then(() => {
+      t.match(cli.output, 'break in examples/three-lines.js:1',
+        'is back at the beginning');
+    })
+    .then(() => cli.stepCommand('n'))
+    .then(() => {
+      t.match(cli.output, 'break in examples/three-lines.js:2',
+        'steps to the 2nd line');
+    })
+    .then(() => cli.stepCommand('restart'))
+    .then(() => {
+      t.match(cli.output, 'break in examples/three-lines.js:1',
+        'is back at the beginning');
+    })
+    .then(() => cli.quit())
+    .then(null, onFatal);
+});
