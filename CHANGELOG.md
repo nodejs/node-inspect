@@ -1,3 +1,9 @@
+### 1.6.0
+
+* Add `help` command - **[@jkrems](https://github.com/jkrems)** [#7](https://github.com/buggerjs/node-inspect/pull/7)
+  - [`09b37a0`](https://github.com/buggerjs/node-inspect/commit/09b37a02e04e16a38ce27f69538d3b098548b47c) **feat:** Add `help` command - see: [#5](https://github.com/buggerjs/node-inspect/issues/5)
+
+
 ### 1.5.0
 
 * [`7e0fd99`](https://github.com/buggerjs/node-inspect/commit/7e0fd99fcfc65d8b647a2259df78f4cabf1d3d63) **feat:** Add `r` shortcut for `run`
