@@ -1,3 +1,8 @@
+### 1.4.1
+
+* [`484d098`](https://github.com/buggerjs/node-inspect/commit/484d0983f06d6ff9639ab5197ba0a58313f532df) **chore:** Remove old implementation
+
+
 ### 1.4.0
 
 * Properly tested implementation - **[@jkrems](https://github.com/jkrems)** [#4](https://github.com/buggerjs/node-inspect/pull/4)
