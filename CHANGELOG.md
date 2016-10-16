@@ -1,3 +1,40 @@
+### 1.4.0
+
+* Properly tested implementation - **[@jkrems](https://github.com/jkrems)** [#4](https://github.com/buggerjs/node-inspect/pull/4)
+  - [`ba060d3`](https://github.com/buggerjs/node-inspect/commit/ba060d3ef65ae84df2a3a9b9f16d563f3c4b29be) **feat:** Error handling w/o args
+  - [`b39b3bc`](https://github.com/buggerjs/node-inspect/commit/b39b3bc07c13adc48fc8bb720889285c51e62548) **feat:** Launch child
+  - [`481693f`](https://github.com/buggerjs/node-inspect/commit/481693f676ee099b7787cd2426b980858e973602) **feat:** Connect debug client
+  - [`3bba0f2`](https://github.com/buggerjs/node-inspect/commit/3bba0f2416b2e3b4e6010de675003fcc328b16e8) **chore:** Disable lint for inactive code
+  - [`cc7bdfc`](https://github.com/buggerjs/node-inspect/commit/cc7bdfcf7f21ef5cd5c32c7800407238b0d4f100) **feat:** Properly fail with invalid host:port
+  - [`73f34f9`](https://github.com/buggerjs/node-inspect/commit/73f34f902634e9778597e129f46895aa8b643d72) **refactor:** Remove unused field
+  - [`6a23e0c`](https://github.com/buggerjs/node-inspect/commit/6a23e0cf3179f43ca6fc5a0fa2b1dd18ebc044b5) **refactor:** Better debug output & support node 6.6
+  - [`63b0f9b`](https://github.com/buggerjs/node-inspect/commit/63b0f9b6ef8bd9af0f7cb14a5938a45838731fc9) **test:** Add timeout to waitFor(pattern)
+  - [`cfa197b`](https://github.com/buggerjs/node-inspect/commit/cfa197bf8325a1a4ca1b296f8d6971d368bfbfbb) **refactor:** Move REPL setup into own file
+  - [`3f46c2c`](https://github.com/buggerjs/node-inspect/commit/3f46c2c43f836e1135b66871087aa74969f6b330) **feat:** Working repl eval
+  - [`6911eb1`](https://github.com/buggerjs/node-inspect/commit/6911eb1a00b964bc5683506d433fa4f665f5a82c) **feat:** Enter repeats last command
+  - [`7d20b7d`](https://github.com/buggerjs/node-inspect/commit/7d20b7deadf1b251ea8cf2cc9167c175624932c4) **chore:** Add missing license header
+  - [`23c62f8`](https://github.com/buggerjs/node-inspect/commit/23c62f8375ca7c8b71d032047e728dace02f4efa) **feat:** Print break context
+  - [`5dbc83d`](https://github.com/buggerjs/node-inspect/commit/5dbc83df31171f9c38a974c99340bde26f2e24ec) **feat:** Stepping and breakpoints
+  - [`8deb8cc`](https://github.com/buggerjs/node-inspect/commit/8deb8cc36b9fca432ab8df63a82e9de7ab5adaf0) **feat:** list for printing source
+  - [`1ed2ec9`](https://github.com/buggerjs/node-inspect/commit/1ed2ec9937070652be611dbb6b11dfb42cb840f8) **chore:** Disable verbose output on CI
+  - [`625a435`](https://github.com/buggerjs/node-inspect/commit/625a435925dd8fd980bed2dc9e3fd73dd27df4ef) **fix:** Gracefully handle delayed scriptParsed
+  - [`8823c60`](https://github.com/buggerjs/node-inspect/commit/8823c60d347600b2313cfdd8cb5e96fe02419a8a) **chore:** Run all the tests
+  - [`00506f7`](https://github.com/buggerjs/node-inspect/commit/00506f763928cc440505a81030167a11b9a84e00) **feat:** backtrace/bt
+  - [`e1ee02d`](https://github.com/buggerjs/node-inspect/commit/e1ee02d5cc389916489d387d07d5dd161230427a) **refactor:** Leverage util.inspect.custom
+  - [`5dcc319`](https://github.com/buggerjs/node-inspect/commit/5dcc31922d40f56c7435319d1538390a442e8e4b) **feat:** scripts and scripts(true)
+  - [`085cd5a`](https://github.com/buggerjs/node-inspect/commit/085cd5a76a961edfcaa342fff5eb09bf2f9c8983) **refactor:** Consistent import style
+  - [`1c60f91`](https://github.com/buggerjs/node-inspect/commit/1c60f91f233848c05d865617dc7f5aacb36270b6) **feat:** Set breakpoint before file is loaded
+  - [`bc82ecc`](https://github.com/buggerjs/node-inspect/commit/bc82eccb2a1a7c0f5332371254f6584e748216aa) **feat:** breakpoints to list breakpoints
+  - [`7f48c95`](https://github.com/buggerjs/node-inspect/commit/7f48c9510696ec400d51afaca8d23a9c292640f8) **feat:** watchers & exec
+  - [`0f8cd13`](https://github.com/buggerjs/node-inspect/commit/0f8cd13a092e5dbeb395ff04cbe2ed97cb986423) **feat:** clearBreakpoint
+  - [`0d31560`](https://github.com/buggerjs/node-inspect/commit/0d315603bdcb9f4da42fab24dc569c325151269e) **feat:** version to print v8 version
+  - [`df6b89d`](https://github.com/buggerjs/node-inspect/commit/df6b89df580a9afcb3b8883b0e4224cbcebb384f) **feat:** Paused & global exec
+  - [`9e97d73`](https://github.com/buggerjs/node-inspect/commit/9e97d73073ceffd70974d45887c84fadb9159d5c) **feat:** repl to enter exec mode
+  - [`9ee9f90`](https://github.com/buggerjs/node-inspect/commit/9ee9f903d6202f54ed2b3b3559da4006b65d39b5) **feat:** run & restart
+* [`3a752aa`](https://github.com/buggerjs/node-inspect/commit/3a752aaa773968bfe16c5f543bd739feed598bea) **feat:** kill
+* [`a67e470`](https://github.com/buggerjs/node-inspect/commit/a67e47018b20d46aeeaa7abd27eb8e7770fd0b8f) **feat:** Restore breakpoints on restart
+
+
 ### 1.3.3
 
 * [`eb7a54c`](https://github.com/buggerjs/node-inspect/commit/eb7a54c6fa731ed3276072c72034046fc5ffbac6) **chore:** Switch to tap for tests
