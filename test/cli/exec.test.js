@@ -45,3 +45,25 @@ test('examples/alive.js', (t) => {
     .then(() => cli.quit())
     .then(null, onFatal);
 });
+
+test('exec .scope', (t) => {
+  const cli = startCLI(['examples/backtrace.js']);
+
+  function onFatal(error) {
+    cli.quit();
+    throw error;
+  }
+
+  return cli.waitFor(/break/)
+    .then(() => cli.waitForPrompt())
+    .then(() => cli.stepCommand('c'))
+    .then(() => cli.command('exec .scope'))
+    .then(() => {
+      t.match(cli.output, '\'moduleScoped\'', 'displays closure from module body');
+      t.match(cli.output, '\'a\'', 'displays local / function arg');
+      t.match(cli.output, '\'l1\'', 'displays local scope');
+      t.notMatch(cli.output, '\'encodeURIComponent\'', 'omits global scope');
+    })
+    .then(() => cli.quit())
+    .then(null, onFatal);
+});
