@@ -1,3 +1,8 @@
+### 1.8.0
+
+* [`d0e6499`](https://github.com/buggerjs/node-inspect/commit/d0e6499084f5d656ef0c5fd470d3ab21f2e9a6b4) **feat:** `exec .scope`
+
+
 ### 1.7.0
 
 * `breakOn{Exception,Uncaught,None}` - **[@jkrems](https://github.com/jkrems)** [#8](https://github.com/buggerjs/node-inspect/pull/8)
