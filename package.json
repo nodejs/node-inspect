@@ -1,6 +1,6 @@
 {
   "name": "node-inspect",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "Node Inspect",
   "license": "MIT",
   "main": "lib/node-inspect.js",

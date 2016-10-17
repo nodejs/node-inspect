@@ -1,3 +1,8 @@
+### 1.8.2
+
+* [`4219a98`](https://github.com/buggerjs/node-inspect/commit/4219a98d6514f1068feabce2945c21a0d5ba6561) **refactor:** Decouple source snippet from repl
+
+
 ### 1.8.1
 
 * [`95402ee`](https://github.com/buggerjs/node-inspect/commit/95402ee5dff04057f074677d39db2f61ec74c151) **refactor:** Move `list` into CallFrame
