@@ -1,3 +1,8 @@
+### 1.8.1
+
+* [`95402ee`](https://github.com/buggerjs/node-inspect/commit/95402ee5dff04057f074677d39db2f61ec74c151) **refactor:** Move `list` into CallFrame
+
+
 ### 1.8.0
 
 * [`d0e6499`](https://github.com/buggerjs/node-inspect/commit/d0e6499084f5d656ef0c5fd470d3ab21f2e9a6b4) **feat:** `exec .scope`
