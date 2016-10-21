@@ -1,3 +1,9 @@
+### 1.8.3
+
+* [`6f9883d`](https://github.com/buggerjs/node-inspect/commit/6f9883d4b29419831133988981b83e891b19739a) **fix:** Breakpoints & scripts work when not paused
+* [`ecb1362`](https://github.com/buggerjs/node-inspect/commit/ecb1362c842e6ed5bc28c091a32bfd540742db75) **chore:** Pin node to 6.8
+
+
 ### 1.8.2
 
 * [`4219a98`](https://github.com/buggerjs/node-inspect/commit/4219a98d6514f1068feabce2945c21a0d5ba6561) **refactor:** Decouple source snippet from repl
