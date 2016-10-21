@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '6'
+  - '6.8'
 before_deploy:
   - git config --global user.email "jan.krems@gmail.com"
   - git config --global user.name "Jan Krems"
@@ -10,4 +10,4 @@ deploy:
   skip_cleanup: true
   'on':
     branch: master
-    node: '6'
+    node: '6.8'
