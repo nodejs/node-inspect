@@ -1,3 +1,9 @@
+### 1.9.0
+
+* Support for low-level agent access - **[@jkrems](https://github.com/jkrems)** [#13](https://github.com/buggerjs/node-inspect/pull/13)
+  - [`90ed431`](https://github.com/buggerjs/node-inspect/commit/90ed4310c62d130637c12f8ecdb752075c43ac36) **feat:** Support for low-level agent access
+
+
 ### 1.8.4
 
 * Use proper path for websocket - **[@jkrems](https://github.com/jkrems)** [#12](https://github.com/buggerjs/node-inspect/pull/12)
