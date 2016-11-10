@@ -1,3 +1,9 @@
+### 1.8.4
+
+* Use proper path for websocket - **[@jkrems](https://github.com/jkrems)** [#12](https://github.com/buggerjs/node-inspect/pull/12)
+  - [`3405225`](https://github.com/buggerjs/node-inspect/commit/3405225979dfc2058bcc6d1b90f41c060dbd1f92) **fix:** Use proper path for websocket - see: [#11](https://github.com/buggerjs/node-inspect/issues/11)
+
+
 ### 1.8.3
 
 * [`6f9883d`](https://github.com/buggerjs/node-inspect/commit/6f9883d4b29419831133988981b83e891b19739a) **fix:** Breakpoints & scripts work when not paused
