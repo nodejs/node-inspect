@@ -1,3 +1,9 @@
+### 1.9.1
+
+* Handle big ws frames correctly - **[@jkrems](https://github.com/jkrems)** [#14](https://github.com/buggerjs/node-inspect/pull/14)
+  - [`f80100e`](https://github.com/buggerjs/node-inspect/commit/f80100e932710d232d074b239cbf8fefa564c789) **fix:** Handle big ws frames correctly - see: [#10](https://github.com/buggerjs/node-inspect/issues/10)
+
+
 ### 1.9.0
 
 * Support for low-level agent access - **[@jkrems](https://github.com/jkrems)** [#13](https://github.com/buggerjs/node-inspect/pull/13)
