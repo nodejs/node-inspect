@@ -63,8 +63,10 @@ function startCLI(args) {
 
         const timer = setTimeout(() => {
           tearDown(); // eslint-disable-line no-use-before-define
-          reject(new Error(
-            `Timeout (${timeout}) while waiting for ${pattern}; found: ${this.output}`));
+          reject(new Error([
+            `Timeout (${timeout}) while waiting for ${pattern}`,
+            `found: ${this.output}`,
+          ].join('; ')));
         }, timeout);
 
         function tearDown() {
@@ -113,7 +115,10 @@ function startCLI(args) {
       this.flushOutput();
       child.stdin.write(input);
       child.stdin.write('\n');
-      return this.waitFor(/(?:assert|break|debugCommand|exception|other|promiseRejection) in/)
+      return this
+        .waitFor(
+          /(?:assert|break|debugCommand|exception|other|promiseRejection) in/
+        )
         .then(() => this.waitForPrompt());
     },
 

@@ -19,7 +19,9 @@ test('examples/alive.js', (t) => {
     })
     .then(() => cli.command('repl'))
     .then(() => {
-      t.match(cli.output, 'Press Ctrl + C to leave debug repl\n> ',
+      t.match(
+        cli.output,
+        'Press Ctrl + C to leave debug repl\n> ',
         'shows hint for how to leave repl');
       t.notMatch(cli.output, 'debug>', 'changes the repl style');
     })
@@ -27,7 +29,9 @@ test('examples/alive.js', (t) => {
     .then(() => cli.waitFor(/function/))
     .then(() => cli.waitForPrompt())
     .then(() => {
-      t.match(cli.output, '[ \'function\', \'function\' ]', 'can evaluate in the repl');
+      t.match(
+        cli.output,
+        '[ \'function\', \'function\' ]', 'can evaluate in the repl');
       t.match(cli.output, /> $/);
     })
     .then(() => cli.ctrlC())
@@ -39,7 +43,9 @@ test('examples/alive.js', (t) => {
     .then(() => cli.command('cont'))
     .then(() => cli.command('exec [typeof heartbeat, typeof process.exit]'))
     .then(() => {
-      t.match(cli.output, '[ \'undefined\', \'function\' ]',
+      t.match(
+        cli.output,
+        '[ \'undefined\', \'function\' ]',
         'non-paused exec can see global but not module-scope values');
     })
     .then(() => cli.quit())
@@ -59,7 +65,9 @@ test('exec .scope', (t) => {
     .then(() => cli.stepCommand('c'))
     .then(() => cli.command('exec .scope'))
     .then(() => {
-      t.match(cli.output, '\'moduleScoped\'', 'displays closure from module body');
+      t.match(
+        cli.output,
+        '\'moduleScoped\'', 'displays closure from module body');
       t.match(cli.output, '\'a\'', 'displays local / function arg');
       t.match(cli.output, '\'l1\'', 'displays local scope');
       t.notMatch(cli.output, '\'encodeURIComponent\'', 'omits global scope');

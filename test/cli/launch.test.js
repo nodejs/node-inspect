@@ -8,7 +8,10 @@ test('examples/empty.js', (t) => {
   return cli.waitForPrompt()
     .then(() => {
       t.match(cli.output, 'debug>', 'prints a prompt');
-      t.match(cli.output, '< Debugger listening on port 9229', 'forwards child output');
+      t.match(
+        cli.output,
+        '< Debugger listening on port 9229',
+        'forwards child output');
     })
     .then(() => cli.command('["hello", "world"].join(" ")'))
     .then(() => {
@@ -40,13 +43,17 @@ test('run after quit / restart', (t) => {
     .then(() => cli.waitForPrompt())
     .then(() => cli.stepCommand('n'))
     .then(() => {
-      t.match(cli.output, 'break in examples/three-lines.js:2',
+      t.match(
+        cli.output,
+        'break in examples/three-lines.js:2',
         'steps to the 2nd line');
     })
     .then(() => cli.command('cont'))
     .then(() => cli.waitFor(/disconnect/))
     .then(() => {
-      t.match(cli.output, 'Waiting for the debugger to disconnect',
+      t.match(
+        cli.output,
+        'Waiting for the debugger to disconnect',
         'the child was done');
     })
     .then(() => cli.command('cont'))
@@ -57,17 +64,23 @@ test('run after quit / restart', (t) => {
     .then(() => cli.stepCommand('run'))
     .then(() => cli.waitForPrompt())
     .then(() => {
-      t.match(cli.output, 'break in examples/three-lines.js:1',
+      t.match(
+        cli.output,
+        'break in examples/three-lines.js:1',
         'is back at the beginning');
     })
     .then(() => cli.stepCommand('n'))
     .then(() => {
-      t.match(cli.output, 'break in examples/three-lines.js:2',
+      t.match(
+        cli.output,
+        'break in examples/three-lines.js:2',
         'steps to the 2nd line');
     })
     .then(() => cli.stepCommand('restart'))
     .then(() => {
-      t.match(cli.output, 'break in examples/three-lines.js:1',
+      t.match(
+        cli.output,
+        'break in examples/three-lines.js:1',
         'is back at the beginning');
     })
     .then(() => cli.command('kill'))
@@ -79,7 +92,9 @@ test('run after quit / restart', (t) => {
     .then(() => cli.stepCommand('run'))
     .then(() => cli.waitForPrompt())
     .then(() => {
-      t.match(cli.output, 'break in examples/three-lines.js:1',
+      t.match(
+        cli.output,
+        'break in examples/three-lines.js:1',
         'is back at the beginning');
     })
     .then(() => cli.quit())
