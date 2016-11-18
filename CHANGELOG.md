@@ -1,3 +1,15 @@
+### 1.9.3
+
+* Move back to single file - **[@jkrems](https://github.com/jkrems)** [#15](https://github.com/buggerjs/node-inspect/pull/15)
+  - [`9877660`](https://github.com/buggerjs/node-inspect/commit/9877660a73ff0ec0885ad7f939ba62020a46b4b6) **refactor:** Wrap client in IIFE
+  - [`7795c53`](https://github.com/buggerjs/node-inspect/commit/7795c533f0605eb128db610a5874b27e555251ef) **refactor:** Move more code in createRepl scope
+  - [`be34a39`](https://github.com/buggerjs/node-inspect/commit/be34a398e823612bdf5ac90bad5222af27035a00) **refactor:** Move back to single file
+  - [`ab45b62`](https://github.com/buggerjs/node-inspect/commit/ab45b6273dc0d3a49d3cf46a80cb48ab79d1caf8) **refactor:** Remove single-use functions
+  - [`37a711e`](https://github.com/buggerjs/node-inspect/commit/37a711ed5334c06ed4d85f995e567a9f176a68d5) **style:** Stop using `new Buffer`
+  - [`d669dc5`](https://github.com/buggerjs/node-inspect/commit/d669dc593f5ad5ca7a48f19f0905ef66ec0e540d) **chore:** Switch to node eslint rules
+  - [`15e7917`](https://github.com/buggerjs/node-inspect/commit/15e79177918d96dcffd2384715faf0308e97a26c) **style:** Use var in classical for loops
+
+
 ### 1.9.2
 
 * [`c9dc4be`](https://github.com/buggerjs/node-inspect/commit/c9dc4beb08236e33d64f19417682cf5b3f5aeed6) **doc:** Link directly to GOVERNANCE file
