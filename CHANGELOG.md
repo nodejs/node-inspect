@@ -1,3 +1,8 @@
+### 1.9.2
+
+* [`c9dc4be`](https://github.com/buggerjs/node-inspect/commit/c9dc4beb08236e33d64f19417682cf5b3f5aeed6) **doc:** Link directly to GOVERNANCE file
+
+
 ### 1.9.1
 
 * Handle big ws frames correctly - **[@jkrems](https://github.com/jkrems)** [#14](https://github.com/buggerjs/node-inspect/pull/14)
