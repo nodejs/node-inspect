@@ -16,7 +16,9 @@ test('launch w/ invalid host:port', (t) => {
   const cli = startCLI(['localhost:914']);
   return cli.quit()
     .then((code) => {
-      t.match(cli.output, 'failed to connect',
+      t.match(
+        cli.output,
+        'failed to connect',
         'Tells the user that the connection failed');
       t.equal(code, 1, 'exits with non-zero exit code');
     });

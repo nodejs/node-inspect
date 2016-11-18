@@ -32,7 +32,9 @@ test('stepping through breakpoints', (t) => {
       t.match(cli.output, '2: NaN = NaN');
       t.match(cli.output, '3: true = true');
       t.match(cli.output, '4: [1, 2] = [ 1, 2 ]');
-      t.match(cli.output, /5: process\.env =\n\s+\{[\s\S]+,\n\s+\.\.\. \}/,
+      t.match(
+        cli.output,
+        /5: process\.env =\n\s+\{[\s\S]+,\n\s+\.\.\. \}/,
         'shows "..." for process.env');
     })
     .then(() => cli.quit())

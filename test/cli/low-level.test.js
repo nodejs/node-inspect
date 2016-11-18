@@ -16,11 +16,14 @@ test('Debugger agent direct access', (t) => {
     .then(() => cli.command('scripts'))
     .then(() => {
       const [, scriptId] = cli.output.match(/^\* (\d+): examples\/empty.js/);
-      return cli.command(`Debugger.getScriptSource({ scriptId: '${scriptId}' })`);
+      return cli.command(
+        `Debugger.getScriptSource({ scriptId: '${scriptId}' })`
+      );
     })
     .then(() => {
-      t.match(cli.output,
-        'scriptSource: \'(function (exports, require, module, __filename, __dirname) { \\n});\'');
+      t.match(
+        cli.output,
+        /scriptSource: '\(function \([^)]+\) \{ \\n}\);'/);
     })
     .then(() => cli.quit())
     .then(null, onFatal);
