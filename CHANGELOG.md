@@ -1,3 +1,8 @@
+### 1.10.0
+
+* [`3e1a66a`](https://github.com/buggerjs/node-inspect/commit/3e1a66a489bef19beaa5f859e99e027274ff43cb) **feat:** Support CPU & heap profiles
+
+
 ### 1.9.3
 
 * Move back to single file - **[@jkrems](https://github.com/jkrems)** [#15](https://github.com/buggerjs/node-inspect/pull/15)
