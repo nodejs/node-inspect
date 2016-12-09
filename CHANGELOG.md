@@ -1,3 +1,8 @@
+### 1.10.1
+
+* [`4ba3c72`](https://github.com/buggerjs/node-inspect/commit/4ba3c72270fae9a71343ddca11aa27980678a67c) **refactor:** Undo weird bundling into one file
+
+
 ### 1.10.0
 
 * [`3e1a66a`](https://github.com/buggerjs/node-inspect/commit/3e1a66a489bef19beaa5f859e99e027274ff43cb) **feat:** Support CPU & heap profiles
