@@ -1,3 +1,9 @@
+### 1.10.5
+
+* docs: minor edits to governance docs - **[@joshgav](https://github.com/joshgav)** [#17](https://github.com/buggerjs/node-inspect/pull/17)
+  - [`a70fe04`](https://github.com/buggerjs/node-inspect/commit/a70fe04bdde9b7c74588685066291f9b11183328) **docs:** minor edits to governance docs
+
+
 ### 1.10.4
 
 * [`1c31bf7`](https://github.com/buggerjs/node-inspect/commit/1c31bf7d1b3ea1b424ae0662526596670cb506c9) **chore:** Support embedded mode
