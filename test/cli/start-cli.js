@@ -42,6 +42,30 @@ function startCLI(args) {
       return output;
     },
 
+    waitForExit(timeout = 2000) {
+      return new Promise((resolve, reject) => {
+        function onChildExit() {
+          tearDown(); // eslint-disable-line no-use-before-define
+          resolve();
+        }
+
+        const timer = setTimeout(() => {
+          tearDown(); // eslint-disable-line no-use-before-define
+          reject(new Error([
+            `Timeout (${timeout}) while waiting for exit`,
+            `found: ${this.output}`,
+          ].join('; ')));
+        }, timeout);
+
+        function tearDown() {
+          clearTimeout(timer);
+          child.removeListener('exit', onChildExit);
+        }
+
+        child.on('exit', onChildExit);
+      });
+    },
+
     waitFor(pattern, timeout = 2000) {
       function checkPattern(str) {
         if (Array.isArray(pattern)) {
