@@ -5,11 +5,6 @@ const { test } = require('tap');
 
 const startCLI = require('./start-cli');
 
-var brkLine = 1;
-if (process.platform == 'aix') {
-  brkLine = 2;
-}
-
 test('break on (uncaught) exceptions', (t) => {
   const script = Path.join('examples', 'exceptions.js');
   const cli = startCLI([script]);
@@ -22,7 +17,7 @@ test('break on (uncaught) exceptions', (t) => {
   return cli.waitFor(/break/)
     .then(() => cli.waitForPrompt())
     .then(() => {
-      t.match(cli.output, `break in ${script}:${brkLine}`);
+      t.match(cli.output, `break in ${script}:1`);
     })
     // making sure it will die by default:
     .then(() => cli.command('c'))
@@ -31,7 +26,7 @@ test('break on (uncaught) exceptions', (t) => {
     // Next run: With `breakOnException` it pauses in both places
     .then(() => cli.stepCommand('r'))
     .then(() => {
-      t.match(cli.output, `break in ${script}:${brkLine}`);
+      t.match(cli.output, `break in ${script}:1`);
     })
     .then(() => cli.command('breakOnException'))
     .then(() => cli.stepCommand('c'))
@@ -47,7 +42,7 @@ test('break on (uncaught) exceptions', (t) => {
     .then(() => cli.command('breakOnUncaught'))
     .then(() => cli.stepCommand('r')) // also, the setting survives the restart
     .then(() => {
-      t.match(cli.output, `break in ${script}:${brkLine}`);
+      t.match(cli.output, `break in ${script}:1`);
     })
     .then(() => cli.stepCommand('c'))
     .then(() => {
@@ -58,7 +53,7 @@ test('break on (uncaught) exceptions', (t) => {
     .then(() => cli.command('breakOnNone'))
     .then(() => cli.stepCommand('r'))
     .then(() => {
-      t.match(cli.output, `break in ${script}:${brkLine}`);
+      t.match(cli.output, `break in ${script}:1`);
     })
     .then(() => cli.command('c'))
     .then(() => cli.waitFor(/disconnect/))
