@@ -42,7 +42,7 @@ function startCLI(args) {
       return output;
     },
 
-    waitFor(pattern, timeout = 2000) {
+    waitFor(pattern, timeout = 5000) {
       function checkPattern(str) {
         if (Array.isArray(pattern)) {
           return pattern.every((p) => p.test(str));
@@ -84,7 +84,7 @@ function startCLI(args) {
       });
     },
 
-    waitForPrompt(timeout = 2000) {
+    waitForPrompt(timeout = 5000) {
       return this.waitFor(/>\s+$/, timeout);
     },
 
