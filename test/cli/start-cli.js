@@ -1,6 +1,11 @@
 'use strict';
 const spawn = require('child_process').spawn;
 
+// This allows us to keep the helper inside of `test/` without tap warning
+// about "pending" test files.
+const tap = require('tap');
+tap.test('startCLI', (t) => t.end());
+
 const CLI =
   process.env.USE_EMBEDDED_NODE_INSPECT === '1' ?
   'inspect' :
