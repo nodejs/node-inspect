@@ -102,7 +102,7 @@ function startCLI(args) {
       return this.waitFor(/break (?:on start )?in/i, timeout)
         .then(() => {
           if (/Break on start/.test(this.output)) {
-            return this.command('n')
+            return this.command('next', false)
               .then(() => this.waitFor(/break in/, timeout));
           }
         });
@@ -127,8 +127,10 @@ function startCLI(args) {
         .map((match) => +match[1]);
     },
 
-    command(input) {
-      this.flushOutput();
+    command(input, flush = true) {
+      if (flush) {
+        this.flushOutput();
+      }
       child.stdin.write(input);
       child.stdin.write('\n');
       return this.waitForPrompt();

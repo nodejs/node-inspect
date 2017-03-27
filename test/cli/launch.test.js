@@ -5,6 +5,27 @@ const { test } = require('tap');
 
 const startCLI = require('./start-cli');
 
+test('custom port', (t) => {
+  const CUSTOM_PORT = '9230';
+  const script = Path.join('examples', 'three-lines.js');
+
+  const cli = startCLI([`--port=${CUSTOM_PORT}`, script]);
+
+  return cli.waitForInitialBreak()
+    .then(() => cli.waitForPrompt())
+    .then(() => {
+      t.match(cli.output, 'debug>', 'prints a prompt');
+      t.match(
+        cli.output,
+        new RegExp(`< Debugger listening on [^\n]*${CUSTOM_PORT}`),
+        'forwards child output');
+    })
+    .then(() => cli.quit())
+    .then((code) => {
+      t.equal(code, 0, 'exits with success');
+    });
+});
+
 test('examples/three-lines.js', (t) => {
   const script = Path.join('examples', 'three-lines.js');
   const cli = startCLI([script]);
@@ -13,6 +34,10 @@ test('examples/three-lines.js', (t) => {
     .then(() => cli.waitForPrompt())
     .then(() => {
       t.match(cli.output, 'debug>', 'prints a prompt');
+      t.match(
+        cli.output,
+        new RegExp(`< Debugger listening on [^\n]*9229`),
+        'forwards child output');
     })
     .then(() => cli.command('["hello", "world"].join(" ")'))
     .then(() => {
