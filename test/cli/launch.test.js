@@ -5,6 +5,27 @@ const { test } = require('tap');
 
 const startCLI = require('./start-cli');
 
+test('custom port', (t) => {
+  const CUSTOM_PORT = '9230';
+  const script = Path.join('examples', 'empty.js');
+
+  const cli = startCLI([`--port=${CUSTOM_PORT}`, script]);
+
+  return cli.waitFor(/break/)
+    .then(() => cli.waitForPrompt())
+    .then(() => {
+      t.match(cli.output, 'debug>', 'prints a prompt');
+      t.match(
+        cli.output,
+        `< Debugger listening on port ${CUSTOM_PORT}`,
+        'forwards child output');
+    })
+    .then(() => cli.quit())
+    .then((code) => {
+      t.equal(code, 0, 'exits with success');
+    });
+});
+
 test('examples/empty.js', (t) => {
   const script = Path.join('examples', 'empty.js');
   const cli = startCLI([script]);
