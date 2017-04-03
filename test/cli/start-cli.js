@@ -11,6 +11,11 @@ const CLI =
   'inspect' :
   require.resolve('../../cli.js');
 
+const BREAK_MESSAGE = new RegExp('(?:' + [
+  'assert', 'break', 'break on start', 'debugCommand',
+  'exception', 'other', 'promiseRejection',
+].join('|') + ') in', 'i');
+
 function startCLI(args) {
   const child = spawn(process.execPath, [CLI, ...args]);
   let isFirstStdoutChunk = true;
@@ -94,7 +99,13 @@ function startCLI(args) {
     },
 
     waitForInitialBreak(timeout = 2000) {
-      return this.waitFor(/break/i, timeout);
+      return this.waitFor(/break (?:on start )?in/i, timeout)
+        .then(() => {
+          if (/Break on start/.test(this.output)) {
+            return this.command('n')
+              .then(() => this.waitFor(/break in/, timeout));
+          }
+        });
     },
 
     ctrlC() {
@@ -128,9 +139,7 @@ function startCLI(args) {
       child.stdin.write(input);
       child.stdin.write('\n');
       return this
-        .waitFor(
-          /(?:assert|break|debugCommand|exception|other|promiseRejection) in/
-        )
+        .waitFor(BREAK_MESSAGE)
         .then(() => this.waitForPrompt());
     },
 

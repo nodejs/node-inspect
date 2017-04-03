@@ -33,8 +33,7 @@ test('run after quit / restart', (t) => {
       t.match(cli.output, `break in ${script}:3`);
     })
     .then(() => cli.command('restart'))
-    .then(() => cli.waitFor([/break in examples/, /breakpoints restored/]))
-    .then(() => cli.waitForPrompt())
+    .then(() => cli.waitForInitialBreak())
     .then(() => {
       t.match(cli.output, `break in ${script}:1`);
     })
