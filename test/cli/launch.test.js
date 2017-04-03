@@ -9,7 +9,7 @@ test('examples/empty.js', (t) => {
   const script = Path.join('examples', 'empty.js');
   const cli = startCLI([script]);
 
-  return cli.waitFor(/break/)
+  return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => {
       t.match(cli.output, 'debug>', 'prints a prompt');
@@ -45,7 +45,7 @@ test('run after quit / restart', (t) => {
     throw error;
   }
 
-  return cli.waitFor(/break/)
+  return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => cli.stepCommand('n'))
     .then(() => {

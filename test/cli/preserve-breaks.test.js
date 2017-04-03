@@ -14,7 +14,7 @@ test('run after quit / restart', (t) => {
     throw error;
   }
 
-  return cli.waitFor(/break/)
+  return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => cli.command('breakpoints'))
     .then(() => {

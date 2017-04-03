@@ -14,12 +14,12 @@ test('stepping through breakpoints', (t) => {
     throw error;
   }
 
-  return cli.waitFor(/break/)
+  return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => {
       t.match(
         cli.output,
-        `break in ${script}:1`,
+        ` in ${script}:1`,
         'pauses in the first line of the script');
       t.match(
         cli.output,
@@ -30,7 +30,7 @@ test('stepping through breakpoints', (t) => {
     .then(() => {
       t.match(
         cli.output,
-        `break in ${script}:2`,
+        ` in ${script}:2`,
         'pauses in next line of the script');
       t.match(
         cli.output,
@@ -41,7 +41,7 @@ test('stepping through breakpoints', (t) => {
     .then(() => {
       t.match(
         cli.output,
-        `break in ${script}:3`,
+        ` in ${script}:3`,
         'pauses in next line of the script');
       t.match(
         cli.output,
@@ -52,7 +52,7 @@ test('stepping through breakpoints', (t) => {
     .then(() => {
       t.match(
         cli.output,
-        `break in ${script}:10`,
+        ` in ${script}:10`,
         'pauses on the next breakpoint');
       t.match(
         cli.output,
@@ -94,21 +94,21 @@ test('stepping through breakpoints', (t) => {
     .then(() => {
       t.match(
         cli.output,
-        'break in timers.js',
+        ' in timers.js',
         'entered timers.js');
     })
     .then(() => cli.stepCommand('cont'))
     .then(() => {
       t.match(
         cli.output,
-        `break in ${script}:16`,
+        ` in ${script}:16`,
         'found breakpoint we set above w/ line number only');
     })
     .then(() => cli.stepCommand('cont'))
     .then(() => {
       t.match(
         cli.output,
-        `break in ${script}:6`,
+        ` in ${script}:6`,
         'found breakpoint we set above w/ line number & script');
     })
     .then(() => cli.stepCommand(''))
@@ -132,7 +132,7 @@ test('sb before loading file', (t) => {
     throw error;
   }
 
-  return cli.waitFor(/break/)
+  return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => cli.command('sb("other.js", 3)'))
     .then(() => {
@@ -145,7 +145,7 @@ test('sb before loading file', (t) => {
     .then(() => {
       t.match(
         cli.output,
-        `break in ${otherScript}:3`,
+        ` in ${otherScript}:3`,
         'found breakpoint in file that was not loaded yet');
     })
     .then(() => cli.quit())
@@ -161,7 +161,7 @@ test('clearBreakpoint', (t) => {
     throw error;
   }
 
-  return cli.waitFor(/break/)
+  return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => cli.command('sb("break.js", 3)'))
     .then(() => cli.command('sb("break.js", 9)'))
@@ -187,7 +187,7 @@ test('clearBreakpoint', (t) => {
     .then(() => {
       t.match(
         cli.output,
-        `break in ${script}:9`,
+        ` in ${script}:9`,
         'hits the 2nd breakpoint because the 1st was cleared');
     })
     .then(() => cli.quit())

@@ -93,6 +93,10 @@ function startCLI(args) {
       return this.waitFor(/>\s+$/, timeout);
     },
 
+    waitForInitialBreak(timeout = 2000) {
+      return this.waitFor(/break/i, timeout);
+    },
+
     ctrlC() {
       return this.command('.interrupt');
     },

@@ -14,10 +14,10 @@ test('break on (uncaught) exceptions', (t) => {
     throw error;
   }
 
-  return cli.waitFor(/break/)
+  return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => {
-      t.match(cli.output, `break in ${script}:1`);
+      t.match(cli.output, ` in ${script}:1`);
     })
     // making sure it will die by default:
     .then(() => cli.command('c'))
@@ -26,7 +26,7 @@ test('break on (uncaught) exceptions', (t) => {
     // Next run: With `breakOnException` it pauses in both places
     .then(() => cli.stepCommand('r'))
     .then(() => {
-      t.match(cli.output, `break in ${script}:1`);
+      t.match(cli.output, ` in ${script}:1`);
     })
     .then(() => cli.command('breakOnException'))
     .then(() => cli.stepCommand('c'))
@@ -42,7 +42,7 @@ test('break on (uncaught) exceptions', (t) => {
     .then(() => cli.command('breakOnUncaught'))
     .then(() => cli.stepCommand('r')) // also, the setting survives the restart
     .then(() => {
-      t.match(cli.output, `break in ${script}:1`);
+      t.match(cli.output, ` in ${script}:1`);
     })
     .then(() => cli.stepCommand('c'))
     .then(() => {
@@ -53,7 +53,7 @@ test('break on (uncaught) exceptions', (t) => {
     .then(() => cli.command('breakOnNone'))
     .then(() => cli.stepCommand('r'))
     .then(() => {
-      t.match(cli.output, `break in ${script}:1`);
+      t.match(cli.output, ` in ${script}:1`);
     })
     .then(() => cli.command('c'))
     .then(() => cli.waitFor(/disconnect/))

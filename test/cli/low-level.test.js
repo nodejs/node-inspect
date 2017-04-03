@@ -12,7 +12,7 @@ test('Debugger agent direct access', (t) => {
     throw error;
   }
 
-  return cli.waitFor(/break/)
+  return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => cli.command('scripts'))
     .then(() => {
