@@ -36,7 +36,7 @@ test('examples/three-lines.js', (t) => {
       t.match(cli.output, 'debug>', 'prints a prompt');
       t.match(
         cli.output,
-        new RegExp(`< Debugger listening on [^\n]*9229`),
+        /< Debugger listening on [^\n]*9229/,
         'forwards child output');
     })
     .then(() => cli.command('["hello", "world"].join(" ")'))
