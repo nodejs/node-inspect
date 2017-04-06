@@ -1,3 +1,9 @@
+### 1.11.1
+
+* Prefer --inspect-brk over --debug-brk - **[@ofrobots](https://github.com/ofrobots)** [#43](https://github.com/nodejs/node-inspect/pull/43)
+  - [`2c1ed27`](https://github.com/nodejs/node-inspect/commit/2c1ed27ee44d9aebb3c5ac50039abae8166a54e3) **fix:** use --inspect-brk with Node 8+
+
+
 ### 1.11.0
 
 * doc: add profile and heap to help - **[@joshgav](https://github.com/joshgav)** [#39](https://github.com/nodejs/node-inspect/pull/39)
