@@ -29,7 +29,7 @@
   "devDependencies": {
     "eslint": "^3.10.2",
     "nlm": "^3.0.0",
-    "tap": "^7.1.2"
+    "tap": "^10.7.0"
   },
   "author": {
     "name": "Jan Krems",
