@@ -25,7 +25,9 @@
       ]
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "json-split-stream": "^1.1.0"
+  },
   "devDependencies": {
     "eslint": "^3.10.2",
     "nlm": "^3.0.0",
