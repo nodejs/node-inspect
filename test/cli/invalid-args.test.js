@@ -28,7 +28,7 @@ test('launch w/ invalid host:port', (t) => {
 });
 
 test('launch w/ unavailable port', async (t) => {
-  const blocker = createServer(socket => socket.end());
+  const blocker = createServer((socket) => socket.end());
   const port = await new Promise((resolve, reject) => {
     blocker.on('error', reject);
     blocker.listen(0, '127.0.0.1', () => resolve(blocker.address().port));
