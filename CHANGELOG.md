@@ -1,3 +1,10 @@
+### 1.11.5
+
+* Fix eslint issues - **[@jkrems](https://github.com/jkrems)** [#63](https://github.com/nodejs/node-inspect/pull/63)
+  - [`2adadbc`](https://github.com/nodejs/node-inspect/commit/2adadbc1086d2e374c425acbf96260a122705db2) **style:** Fix eslint issues
+  - [`a6d2f88`](https://github.com/nodejs/node-inspect/commit/a6d2f882c026409696a1b063ff40ceba7e1ddb86) **doc:** Remove redundant newline at the end
+
+
 ### 1.11.4
 
 * Handle blocked port - **[@jkrems](https://github.com/jkrems)** [#62](https://github.com/nodejs/node-inspect/pull/62)
