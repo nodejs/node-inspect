@@ -8,8 +8,8 @@ tap.test('startCLI', (t) => t.end());
 
 const CLI =
   process.env.USE_EMBEDDED_NODE_INSPECT === '1' ?
-  'inspect' :
-  require.resolve('../../cli.js');
+    'inspect' :
+    require.resolve('../../cli.js');
 
 const BREAK_MESSAGE = new RegExp('(?:' + [
   'assert', 'break', 'break on start', 'debugCommand',
