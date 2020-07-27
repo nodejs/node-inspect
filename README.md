@@ -19,6 +19,7 @@ by re-implementing `node debug` against the new protocol.
 ```
 Usage: node-inspect script.js
        node-inspect <host>:<port>
+       node-inspect --port=<port>
 ```
 
 #### References
